@@ -357,11 +357,11 @@ namespace DACNQuanLyKTX
                 p.MaLoaiPhong = ((LoaiPhong) cboLoaiPhong_ThemPhong.SelectedItem).MaLoaiPhong;
                 p.SoGiuongDaO = 0;
                 p.SoGiuongTrong = ((LoaiPhong)cboLoaiPhong_ThemPhong.SelectedItem).TongSoGiuong;
-                p.MaQL = maQL;
-                
-                db.Phongs.Add(p);
-                
+                p.MaQL = maQL;               
+                db.Phongs.Add(p);                
                 db.SaveChanges();
+
+
                 KhoiTao_ThemPhong();
             }    
         }
@@ -394,6 +394,7 @@ namespace DACNQuanLyKTX
                     db.SinhViens.Add(sv);
                 }    
                 //Thêm đơn đăng ký mới
+
                 DonDangKy donDK = new DonDangKy();
                 donDK.MSSV = txtMSSV_DKM.Text;
                 donDK.MaDonDangKy = "DDK" + db.DonDangKies.Count();
