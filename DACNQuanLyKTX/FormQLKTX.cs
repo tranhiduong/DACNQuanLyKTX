@@ -421,6 +421,7 @@ namespace DACNQuanLyKTX
                     db.SinhViens.Add(sv);
                 }    
                 //Thêm đơn đăng ký mới
+
                 DonDangKy donDK = new DonDangKy();
                 donDK.MSSV = txtMSSV_DKM.Text;
                 donDK.MaDonDangKy = "DDK" + db.DonDangKies.Count();
