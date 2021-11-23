@@ -36,9 +36,8 @@ namespace DACNQuanLyKTX
             {
                 if (txtMauKhau.Text == ql.MatKhau)
                 {
-                    this.Visible = false;
-                    
-                    FormQLKTX f = new FormQLKTX(ql.MaQL);
+                    this.Visible = false;                   
+                    FormQLKTX f = new FormQLKTX(ql);
                     f.ShowDialog();
                     this.Visible = true;
                     txtTaiKhoan.Text = "";

@@ -13,7 +13,7 @@ namespace DACNQuanLyKTX
 {
     public partial class FormQLKTX : Form
     {
-        private string maQL;
+        private QuanLy ql;
         ModelQLKTX db = new ModelQLKTX();
         public FormQLKTX()
         {
@@ -23,16 +23,87 @@ namespace DACNQuanLyKTX
             
         }
 
-        public FormQLKTX(String maQL)
+        public FormQLKTX(QuanLy ql)
         {            
             
             InitializeComponent();
             CustomizeDesing();
             HideTab();
-            this.maQL = maQL;
-            lbQuanLy.Text = db.QuanLies.ToList().Find(a => a.MaQL == this.maQL).HoTenQL;
+            this.ql = ql;
+            lbQuanLy.Text = this.ql.HoTenQL;
         }
-      
+
+        private void CustomizeDesing()
+        {
+            panelSubDonDangKy.Visible = false;
+            panelSubHoaDon.Visible = false;
+            panelSubPhong.Visible = false;
+            indicatorSubPanelDDK.Visible = false;
+            indicatorSubPanelHD.Visible = false;
+            indicatorSubPanelPhong.Visible = false;
+        }
+
+        private void HideTab()
+        {
+            tabControlKTX.Appearance = TabAppearance.FlatButtons;
+            tabControlKTX.ItemSize = new Size(0, 1);
+            tabControlKTX.SizeMode = TabSizeMode.Fixed;
+            tabControlKTX.DrawMode = TabDrawMode.OwnerDrawFixed;
+            tabControlKTX.Region = new Region(new RectangleF(tpThongKe.Left, tpThongKe.Top, tpThongKe.Width, tpThongKe.Height));
+            foreach (TabPage tab in tabControlKTX.TabPages)
+            {
+                tab.Text = "";
+            }
+        }
+
+        private void MoveIndicator(Control control)
+        {
+            indicatorSubPanelDDK.Visible = false;
+            indicatorSubPanelHD.Visible = false;
+            indicatorSubPanelPhong.Visible = false;
+            indicator.Visible = true;
+            indicator.Top = control.Top;
+            indicator.Height = control.Height;
+        }
+
+        private void MoveIndicatorSubPanelDDK(Control control)
+        {
+            indicatorSubPanelDDK.Visible = true;
+            indicatorSubPanelHD.Visible = false;
+            indicatorSubPanelPhong.Visible = false;
+            indicator.Visible = false;
+            indicatorSubPanelDDK.Top = control.Top;
+            indicatorSubPanelDDK.Height = control.Height;
+        }
+
+        private void MoveIndicatorSubPanelHD(Control control)
+        {
+            indicatorSubPanelDDK.Visible = false;
+            indicatorSubPanelHD.Visible = true;
+            indicatorSubPanelPhong.Visible = false;
+            indicator.Visible = false;
+            indicatorSubPanelHD.Top = control.Top;
+            indicatorSubPanelHD.Height = control.Height;
+        }
+
+        private void MoveIndicatorSubPanelPhong(Control control)
+        {
+            indicatorSubPanelDDK.Visible = false;
+            indicatorSubPanelHD.Visible = false;
+            indicatorSubPanelPhong.Visible = true;
+            indicator.Visible = false;
+            indicatorSubPanelPhong.Top = control.Top;
+            indicatorSubPanelPhong.Height = control.Height;
+        }
+
+        private void HideIndicator()
+        {
+            indicatorSubPanelDDK.Visible = false;
+            indicatorSubPanelHD.Visible = false;
+            indicatorSubPanelPhong.Visible = false;
+            indicator.Visible = false;
+        }
+
 
         private void KhoiTao_DDK()
         {
@@ -120,6 +191,24 @@ namespace DACNQuanLyKTX
             HienThi_DSDDK(dsDDK);
         }
 
+        private void KhoiTao_SuaQL()
+        {
+            txtMaQL_SuaQL.Text = ql.MaQL;
+            txtHoTen_SuaQL.Text = ql.HoTenQL;
+            if(ql.GioiTinh==true)
+            {
+                rbNam_SuaQL.Checked = true;
+            }    
+            else
+            {
+                rbNu_SuaQL.Checked = true;
+            }
+            dtpNgaySinh_SuaQL.Value = ql.NgaySinh;
+            txtCMND_SuaQL.Text = ql.CMND;
+            txtSDT_SuaQL.Text = ql.SDT;
+            txtEmail_SuaQL.Text = ql.DiaChi;
+        }
+
         private void HienThi_DSDDK(List<DonDangKy> dsDDK)
         {
             dataDSDDK.Rows.Clear();
@@ -174,68 +263,8 @@ namespace DACNQuanLyKTX
             }
         }
 
-        private void CustomizeDesing()
-        {
-            panelSubDonDangKy.Visible = false;
-            panelSubHoaDon.Visible = false;
-            panelSubPhong.Visible = false;
-            indicatorSubPanelDDK.Visible = false;
-            indicatorSubPanelHD.Visible = false;
-            indicatorSubPanelPhong.Visible = false;
-        }
         
-        private void HideTab()
-        {
-            tabControlKTX.Appearance = TabAppearance.FlatButtons;
-            tabControlKTX.ItemSize = new Size(0, 1);
-            tabControlKTX.SizeMode = TabSizeMode.Fixed;
-            tabControlKTX.DrawMode = TabDrawMode.OwnerDrawFixed;
-            tabControlKTX.Region = new Region(new RectangleF(tpThongKe.Left, tpThongKe.Top, tpThongKe.Width, tpThongKe.Height));
-            foreach (TabPage tab in tabControlKTX.TabPages)
-            {
-                tab.Text = "";
-            }
-        }
-
-        private void MoveIndicator(Control control)
-        {
-            indicatorSubPanelDDK.Visible = false;
-            indicatorSubPanelHD.Visible = false;
-            indicatorSubPanelPhong.Visible = false;
-            indicator.Visible = true;
-            indicator.Top = control.Top;
-            indicator.Height = control.Height;
-        }
-
-        private void MoveIndicatorSubPanelDDK(Control control)
-        {
-            indicatorSubPanelDDK.Visible = true;
-            indicatorSubPanelHD.Visible = false;
-            indicatorSubPanelPhong.Visible = false;
-            indicator.Visible = false;
-            indicatorSubPanelDDK.Top = control.Top;
-            indicatorSubPanelDDK.Height = control.Height;
-        }
-
-        private void MoveIndicatorSubPanelHD(Control control)
-        {
-            indicatorSubPanelDDK.Visible = false;
-            indicatorSubPanelHD.Visible = true;
-            indicatorSubPanelPhong.Visible = false;
-            indicator.Visible = false;
-            indicatorSubPanelHD.Top = control.Top;
-            indicatorSubPanelHD.Height = control.Height;
-        }
-
-        private void MoveIndicatorSubPanelPhong(Control control)
-        {
-            indicatorSubPanelDDK.Visible = false;
-            indicatorSubPanelHD.Visible = false;
-            indicatorSubPanelPhong.Visible = true;
-            indicator.Visible = false;
-            indicatorSubPanelPhong.Top = control.Top;
-            indicatorSubPanelPhong.Height = control.Height;
-        }
+        
 
 
         private void btnDonDangKy_Click(object sender, EventArgs e)
@@ -357,10 +386,8 @@ namespace DACNQuanLyKTX
                 p.MaLoaiPhong = ((LoaiPhong) cboLoaiPhong_ThemPhong.SelectedItem).MaLoaiPhong;
                 p.SoGiuongDaO = 0;
                 p.SoGiuongTrong = ((LoaiPhong)cboLoaiPhong_ThemPhong.SelectedItem).TongSoGiuong;
-                p.MaQL = maQL;
-                
-                db.Phongs.Add(p);
-                
+                p.MaQL = ql.MaQL;               
+                db.Phongs.Add(p);               
                 db.SaveChanges();
                 KhoiTao_ThemPhong();
             }    
@@ -397,7 +424,7 @@ namespace DACNQuanLyKTX
                 DonDangKy donDK = new DonDangKy();
                 donDK.MSSV = txtMSSV_DKM.Text;
                 donDK.MaDonDangKy = "DDK" + db.DonDangKies.Count();
-                donDK.MaQL = maQL;
+                donDK.MaQL = ql.MaQL;
                 donDK.MSSV = sv.MSSV;
                 donDK.NgayVao = dtpNgayVao_DKM.Value;
                 donDK.ThoiGian = (int)cboThoiGian_DKM.SelectedItem;
@@ -411,6 +438,41 @@ namespace DACNQuanLyKTX
         private void btnDangXuat_QL_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+   
+
+        private void btnSua_SuaQL_Click(object sender, EventArgs e)
+        {
+            if (txtHoTen_SuaQL.Text == "" || txtCMND_SuaQL.Text == "" || txtSDT_SuaQL.Text == "" || txtEmail_SuaQL.Text == "")
+            {
+                DialogResult result = MessageBox.Show("Không được để trống", "Không thêm được", MessageBoxButtons.OK);
+            }
+            else
+            {
+                ql.HoTenQL = txtHoTen_SuaQL.Text;
+                if (rbNam_SuaQL.Checked == true)
+                {
+                    ql.GioiTinh = true;
+                }
+                else
+                {
+                    ql.GioiTinh = false;
+                }
+                ql.NgaySinh = dtpNgaySinh_SuaQL.Value;
+                ql.CMND = txtCMND_SuaQL.Text;
+                ql.SDT = txtSDT_SuaQL.Text;
+                ql.DiaChi = txtEmail_SuaQL.Text;
+                db.SaveChanges();
+                DialogResult result = MessageBox.Show("Sửa thành công");
+            }
+        }
+
+        private void btnSua_QL_Click(object sender, EventArgs e)
+        {
+            HideIndicator();
+            tabControlKTX.SelectedTab = tpSuaQuanLy;
+            KhoiTao_SuaQL();
         }
     }
 }

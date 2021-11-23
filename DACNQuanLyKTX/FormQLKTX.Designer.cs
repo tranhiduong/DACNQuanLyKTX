@@ -156,6 +156,23 @@ namespace DACNQuanLyKTX
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.txtMaPhong_DSPhong = new System.Windows.Forms.TextBox();
+            this.tpSuaQuanLy = new System.Windows.Forms.TabPage();
+            this.btnSua_SuaQL = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtEmail_SuaQL = new System.Windows.Forms.TextBox();
+            this.dtpNgaySinh_SuaQL = new System.Windows.Forms.DateTimePicker();
+            this.rbNu_SuaQL = new System.Windows.Forms.RadioButton();
+            this.rbNam_SuaQL = new System.Windows.Forms.RadioButton();
+            this.label24 = new System.Windows.Forms.Label();
+            this.txtSDT_SuaQL = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.txtCMND_SuaQL = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.txtHoTen_SuaQL = new System.Windows.Forms.TextBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.txtMaQL_SuaQL = new System.Windows.Forms.TextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panel1.SuspendLayout();
             this.panelSubHoaDon.SuspendLayout();
@@ -183,6 +200,7 @@ namespace DACNQuanLyKTX
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataPhong)).BeginInit();
             this.panel5.SuspendLayout();
+            this.tpSuaQuanLy.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -201,7 +219,7 @@ namespace DACNQuanLyKTX
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(214, 552);
+            this.panel1.Size = new System.Drawing.Size(214, 648);
             this.panel1.TabIndex = 1;
             // 
             // panelSubHoaDon
@@ -538,6 +556,7 @@ namespace DACNQuanLyKTX
             this.btnSua_QL.TabIndex = 59;
             this.btnSua_QL.Text = "Sửa";
             this.btnSua_QL.UseVisualStyleBackColor = false;
+            this.btnSua_QL.Click += new System.EventHandler(this.btnSua_QL_Click);
             // 
             // btnDangXuat_QL
             // 
@@ -598,11 +617,12 @@ namespace DACNQuanLyKTX
             this.tabControlKTX.Controls.Add(this.tpDanhSachDon);
             this.tabControlKTX.Controls.Add(this.tpThemPhong);
             this.tabControlKTX.Controls.Add(this.tpDanhSachPhong);
+            this.tabControlKTX.Controls.Add(this.tpSuaQuanLy);
             this.tabControlKTX.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tabControlKTX.Location = new System.Drawing.Point(214, 0);
             this.tabControlKTX.Name = "tabControlKTX";
             this.tabControlKTX.SelectedIndex = 0;
-            this.tabControlKTX.Size = new System.Drawing.Size(969, 728);
+            this.tabControlKTX.Size = new System.Drawing.Size(969, 824);
             this.tabControlKTX.TabIndex = 2;
             // 
             // tpThongKe
@@ -611,8 +631,8 @@ namespace DACNQuanLyKTX
             this.tpThongKe.Controls.Add(this.listView1);
             this.tpThongKe.Location = new System.Drawing.Point(4, 22);
             this.tpThongKe.Name = "tpThongKe";
-            this.tpThongKe.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tpThongKe.Size = new System.Drawing.Size(961, 702);
+            this.tpThongKe.Padding = new System.Windows.Forms.Padding(3);
+            this.tpThongKe.Size = new System.Drawing.Size(961, 798);
             this.tpThongKe.TabIndex = 0;
             this.tpThongKe.Text = "Thống kê";
             // 
@@ -654,8 +674,8 @@ namespace DACNQuanLyKTX
             this.tpDangKyMoi.Controls.Add(this.pictureBox2);
             this.tpDangKyMoi.Location = new System.Drawing.Point(4, 22);
             this.tpDangKyMoi.Name = "tpDangKyMoi";
-            this.tpDangKyMoi.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tpDangKyMoi.Size = new System.Drawing.Size(961, 702);
+            this.tpDangKyMoi.Padding = new System.Windows.Forms.Padding(3);
+            this.tpDangKyMoi.Size = new System.Drawing.Size(961, 798);
             this.tpDangKyMoi.TabIndex = 1;
             this.tpDangKyMoi.Text = "Đăng ký mới";
             // 
@@ -941,8 +961,8 @@ namespace DACNQuanLyKTX
             this.tpDSSV.Controls.Add(this.panel3);
             this.tpDSSV.Location = new System.Drawing.Point(4, 22);
             this.tpDSSV.Name = "tpDSSV";
-            this.tpDSSV.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tpDSSV.Size = new System.Drawing.Size(961, 702);
+            this.tpDSSV.Padding = new System.Windows.Forms.Padding(3);
+            this.tpDSSV.Size = new System.Drawing.Size(961, 798);
             this.tpDSSV.TabIndex = 2;
             this.tpDSSV.Text = "Danh sách sinh viên";
             // 
@@ -996,7 +1016,7 @@ namespace DACNQuanLyKTX
             this.dataDSSV.Location = new System.Drawing.Point(22, 137);
             this.dataDSSV.Name = "dataDSSV";
             this.dataDSSV.RowHeadersVisible = false;
-            this.dataDSSV.Size = new System.Drawing.Size(921, 552);
+            this.dataDSSV.Size = new System.Drawing.Size(921, 648);
             this.dataDSSV.TabIndex = 1;
             // 
             // MSSV
@@ -1137,8 +1157,8 @@ namespace DACNQuanLyKTX
             this.tpDanhSachDon.Controls.Add(this.panel4);
             this.tpDanhSachDon.Location = new System.Drawing.Point(4, 22);
             this.tpDanhSachDon.Name = "tpDanhSachDon";
-            this.tpDanhSachDon.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tpDanhSachDon.Size = new System.Drawing.Size(961, 702);
+            this.tpDanhSachDon.Padding = new System.Windows.Forms.Padding(3);
+            this.tpDanhSachDon.Size = new System.Drawing.Size(961, 798);
             this.tpDanhSachDon.TabIndex = 3;
             this.tpDanhSachDon.Text = "Danh sách đơn";
             // 
@@ -1189,7 +1209,7 @@ namespace DACNQuanLyKTX
             this.dataDSDDK.Location = new System.Drawing.Point(22, 154);
             this.dataDSDDK.Name = "dataDSDDK";
             this.dataDSDDK.RowHeadersVisible = false;
-            this.dataDSDDK.Size = new System.Drawing.Size(921, 540);
+            this.dataDSDDK.Size = new System.Drawing.Size(921, 636);
             this.dataDSDDK.TabIndex = 2;
             // 
             // dataGridViewTextBoxColumn1
@@ -1345,8 +1365,8 @@ namespace DACNQuanLyKTX
             this.tpThemPhong.Controls.Add(this.txtMaPhong_ThemPhong);
             this.tpThemPhong.Location = new System.Drawing.Point(4, 22);
             this.tpThemPhong.Name = "tpThemPhong";
-            this.tpThemPhong.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tpThemPhong.Size = new System.Drawing.Size(961, 702);
+            this.tpThemPhong.Padding = new System.Windows.Forms.Padding(3);
+            this.tpThemPhong.Size = new System.Drawing.Size(961, 798);
             this.tpThemPhong.TabIndex = 4;
             this.tpThemPhong.Text = "Thêm phòng";
             // 
@@ -1463,8 +1483,8 @@ namespace DACNQuanLyKTX
             this.tpDanhSachPhong.Controls.Add(this.panel5);
             this.tpDanhSachPhong.Location = new System.Drawing.Point(4, 22);
             this.tpDanhSachPhong.Name = "tpDanhSachPhong";
-            this.tpDanhSachPhong.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tpDanhSachPhong.Size = new System.Drawing.Size(961, 702);
+            this.tpDanhSachPhong.Padding = new System.Windows.Forms.Padding(3);
+            this.tpDanhSachPhong.Size = new System.Drawing.Size(961, 798);
             this.tpDanhSachPhong.TabIndex = 5;
             this.tpDanhSachPhong.Text = "Danh sách phòng";
             // 
@@ -1474,7 +1494,7 @@ namespace DACNQuanLyKTX
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(3, 153);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(955, 546);
+            this.panel6.Size = new System.Drawing.Size(955, 642);
             this.panel6.TabIndex = 1;
             // 
             // dataPhong
@@ -1526,7 +1546,7 @@ namespace DACNQuanLyKTX
             this.dataPhong.Location = new System.Drawing.Point(15, 17);
             this.dataPhong.Name = "dataPhong";
             this.dataPhong.RowHeadersVisible = false;
-            this.dataPhong.Size = new System.Drawing.Size(921, 489);
+            this.dataPhong.Size = new System.Drawing.Size(921, 585);
             this.dataPhong.TabIndex = 3;
             // 
             // Column1
@@ -1612,7 +1632,7 @@ namespace DACNQuanLyKTX
             this.button6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.button6.ForeColor = System.Drawing.Color.White;
             this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(562, 86);
+            this.button6.Location = new System.Drawing.Point(562, 85);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(120, 29);
             this.button6.TabIndex = 57;
@@ -1686,12 +1706,222 @@ namespace DACNQuanLyKTX
             this.txtMaPhong_DSPhong.Size = new System.Drawing.Size(305, 29);
             this.txtMaPhong_DSPhong.TabIndex = 47;
             // 
+            // tpSuaQuanLy
+            // 
+            this.tpSuaQuanLy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(82)))));
+            this.tpSuaQuanLy.Controls.Add(this.btnSua_SuaQL);
+            this.tpSuaQuanLy.Controls.Add(this.label1);
+            this.tpSuaQuanLy.Controls.Add(this.txtEmail_SuaQL);
+            this.tpSuaQuanLy.Controls.Add(this.dtpNgaySinh_SuaQL);
+            this.tpSuaQuanLy.Controls.Add(this.rbNu_SuaQL);
+            this.tpSuaQuanLy.Controls.Add(this.rbNam_SuaQL);
+            this.tpSuaQuanLy.Controls.Add(this.label24);
+            this.tpSuaQuanLy.Controls.Add(this.txtSDT_SuaQL);
+            this.tpSuaQuanLy.Controls.Add(this.label25);
+            this.tpSuaQuanLy.Controls.Add(this.txtCMND_SuaQL);
+            this.tpSuaQuanLy.Controls.Add(this.label26);
+            this.tpSuaQuanLy.Controls.Add(this.label27);
+            this.tpSuaQuanLy.Controls.Add(this.label28);
+            this.tpSuaQuanLy.Controls.Add(this.txtHoTen_SuaQL);
+            this.tpSuaQuanLy.Controls.Add(this.label29);
+            this.tpSuaQuanLy.Controls.Add(this.txtMaQL_SuaQL);
+            this.tpSuaQuanLy.Location = new System.Drawing.Point(4, 22);
+            this.tpSuaQuanLy.Name = "tpSuaQuanLy";
+            this.tpSuaQuanLy.Padding = new System.Windows.Forms.Padding(3);
+            this.tpSuaQuanLy.Size = new System.Drawing.Size(961, 798);
+            this.tpSuaQuanLy.TabIndex = 6;
+            this.tpSuaQuanLy.Text = "Sửa quản lý";
+            // 
+            // btnSua_SuaQL
+            // 
+            this.btnSua_SuaQL.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnSua_SuaQL.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnSua_SuaQL.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnSua_SuaQL.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnSua_SuaQL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSua_SuaQL.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.btnSua_SuaQL.ForeColor = System.Drawing.Color.White;
+            this.btnSua_SuaQL.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSua_SuaQL.Location = new System.Drawing.Point(491, 480);
+            this.btnSua_SuaQL.Name = "btnSua_SuaQL";
+            this.btnSua_SuaQL.Size = new System.Drawing.Size(120, 29);
+            this.btnSua_SuaQL.TabIndex = 58;
+            this.btnSua_SuaQL.Text = "Tìm kiếm";
+            this.btnSua_SuaQL.UseVisualStyleBackColor = false;
+            this.btnSua_SuaQL.Click += new System.EventHandler(this.btnSua_SuaQL_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.label1.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label1.Location = new System.Drawing.Point(175, 306);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(68, 25);
+            this.label1.TabIndex = 40;
+            this.label1.Text = "CMND";
+            // 
+            // txtEmail_SuaQL
+            // 
+            this.txtEmail_SuaQL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(72)))), ((int)(((byte)(80)))));
+            this.txtEmail_SuaQL.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail_SuaQL.ForeColor = System.Drawing.Color.Gainsboro;
+            this.txtEmail_SuaQL.Location = new System.Drawing.Point(307, 415);
+            this.txtEmail_SuaQL.Name = "txtEmail_SuaQL";
+            this.txtEmail_SuaQL.Size = new System.Drawing.Size(305, 29);
+            this.txtEmail_SuaQL.TabIndex = 39;
+            // 
+            // dtpNgaySinh_SuaQL
+            // 
+            this.dtpNgaySinh_SuaQL.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpNgaySinh_SuaQL.Location = new System.Drawing.Point(306, 250);
+            this.dtpNgaySinh_SuaQL.Name = "dtpNgaySinh_SuaQL";
+            this.dtpNgaySinh_SuaQL.Size = new System.Drawing.Size(305, 29);
+            this.dtpNgaySinh_SuaQL.TabIndex = 38;
+            // 
+            // rbNu_SuaQL
+            // 
+            this.rbNu_SuaQL.AutoSize = true;
+            this.rbNu_SuaQL.BackColor = System.Drawing.Color.Transparent;
+            this.rbNu_SuaQL.Cursor = System.Windows.Forms.Cursors.Default;
+            this.rbNu_SuaQL.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbNu_SuaQL.ForeColor = System.Drawing.Color.Gainsboro;
+            this.rbNu_SuaQL.Location = new System.Drawing.Point(375, 202);
+            this.rbNu_SuaQL.Name = "rbNu_SuaQL";
+            this.rbNu_SuaQL.Size = new System.Drawing.Size(49, 25);
+            this.rbNu_SuaQL.TabIndex = 37;
+            this.rbNu_SuaQL.TabStop = true;
+            this.rbNu_SuaQL.Text = "Nữ";
+            this.rbNu_SuaQL.UseVisualStyleBackColor = false;
+            // 
+            // rbNam_SuaQL
+            // 
+            this.rbNam_SuaQL.AutoSize = true;
+            this.rbNam_SuaQL.BackColor = System.Drawing.Color.Transparent;
+            this.rbNam_SuaQL.Cursor = System.Windows.Forms.Cursors.Default;
+            this.rbNam_SuaQL.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbNam_SuaQL.ForeColor = System.Drawing.Color.Gainsboro;
+            this.rbNam_SuaQL.Location = new System.Drawing.Point(307, 202);
+            this.rbNam_SuaQL.Name = "rbNam_SuaQL";
+            this.rbNam_SuaQL.Size = new System.Drawing.Size(62, 25);
+            this.rbNam_SuaQL.TabIndex = 36;
+            this.rbNam_SuaQL.TabStop = true;
+            this.rbNam_SuaQL.Text = "Nam";
+            this.rbNam_SuaQL.UseVisualStyleBackColor = false;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.label24.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label24.Location = new System.Drawing.Point(175, 415);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(58, 25);
+            this.label24.TabIndex = 35;
+            this.label24.Text = "Email";
+            // 
+            // txtSDT_SuaQL
+            // 
+            this.txtSDT_SuaQL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(72)))), ((int)(((byte)(80)))));
+            this.txtSDT_SuaQL.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSDT_SuaQL.ForeColor = System.Drawing.Color.Gainsboro;
+            this.txtSDT_SuaQL.Location = new System.Drawing.Point(306, 358);
+            this.txtSDT_SuaQL.Name = "txtSDT_SuaQL";
+            this.txtSDT_SuaQL.Size = new System.Drawing.Size(305, 29);
+            this.txtSDT_SuaQL.TabIndex = 34;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.label25.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label25.Location = new System.Drawing.Point(175, 358);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(123, 25);
+            this.label25.TabIndex = 33;
+            this.label25.Text = "Số điện thoại";
+            // 
+            // txtCMND_SuaQL
+            // 
+            this.txtCMND_SuaQL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(72)))), ((int)(((byte)(80)))));
+            this.txtCMND_SuaQL.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCMND_SuaQL.ForeColor = System.Drawing.Color.Gainsboro;
+            this.txtCMND_SuaQL.Location = new System.Drawing.Point(306, 306);
+            this.txtCMND_SuaQL.Name = "txtCMND_SuaQL";
+            this.txtCMND_SuaQL.Size = new System.Drawing.Size(305, 29);
+            this.txtCMND_SuaQL.TabIndex = 32;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.label26.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label26.Location = new System.Drawing.Point(175, 254);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(96, 25);
+            this.label26.TabIndex = 31;
+            this.label26.Text = "Ngày sinh";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.label27.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label27.Location = new System.Drawing.Point(175, 196);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(84, 25);
+            this.label27.TabIndex = 30;
+            this.label27.Text = "Giới tính";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.label28.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label28.Location = new System.Drawing.Point(175, 144);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(68, 25);
+            this.label28.TabIndex = 29;
+            this.label28.Text = "Họ tên";
+            // 
+            // txtHoTen_SuaQL
+            // 
+            this.txtHoTen_SuaQL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(72)))), ((int)(((byte)(80)))));
+            this.txtHoTen_SuaQL.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHoTen_SuaQL.ForeColor = System.Drawing.Color.Gainsboro;
+            this.txtHoTen_SuaQL.Location = new System.Drawing.Point(306, 147);
+            this.txtHoTen_SuaQL.Name = "txtHoTen_SuaQL";
+            this.txtHoTen_SuaQL.Size = new System.Drawing.Size(305, 29);
+            this.txtHoTen_SuaQL.TabIndex = 28;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.label29.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label29.Location = new System.Drawing.Point(175, 97);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(106, 25);
+            this.label29.TabIndex = 27;
+            this.label29.Text = "Mã quản lý";
+            // 
+            // txtMaQL_SuaQL
+            // 
+            this.txtMaQL_SuaQL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(72)))), ((int)(((byte)(80)))));
+            this.txtMaQL_SuaQL.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaQL_SuaQL.ForeColor = System.Drawing.Color.Gainsboro;
+            this.txtMaQL_SuaQL.Location = new System.Drawing.Point(306, 97);
+            this.txtMaQL_SuaQL.Name = "txtMaQL_SuaQL";
+            this.txtMaQL_SuaQL.ReadOnly = true;
+            this.txtMaQL_SuaQL.Size = new System.Drawing.Size(305, 29);
+            this.txtMaQL_SuaQL.TabIndex = 26;
+            // 
             // FormQLKTX
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(82)))));
-            this.ClientSize = new System.Drawing.Size(1183, 552);
+            this.ClientSize = new System.Drawing.Size(1183, 648);
             this.Controls.Add(this.tabControlKTX);
             this.Controls.Add(this.panel1);
             this.Name = "FormQLKTX";
@@ -1727,6 +1957,8 @@ namespace DACNQuanLyKTX
             ((System.ComponentModel.ISupportInitialize)(this.dataPhong)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.tpSuaQuanLy.ResumeLayout(false);
+            this.tpSuaQuanLy.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1851,6 +2083,23 @@ namespace DACNQuanLyKTX
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.Button btnSua_QL;
         private System.Windows.Forms.Button btnDangXuat_QL;
+        private System.Windows.Forms.TabPage tpSuaQuanLy;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtEmail_SuaQL;
+        private System.Windows.Forms.DateTimePicker dtpNgaySinh_SuaQL;
+        private System.Windows.Forms.RadioButton rbNu_SuaQL;
+        private System.Windows.Forms.RadioButton rbNam_SuaQL;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.TextBox txtSDT_SuaQL;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.TextBox txtCMND_SuaQL;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.TextBox txtHoTen_SuaQL;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.TextBox txtMaQL_SuaQL;
+        private System.Windows.Forms.Button btnSua_SuaQL;
     }
 }
 
