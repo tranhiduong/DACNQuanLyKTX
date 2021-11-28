@@ -8,7 +8,7 @@ namespace DACNQuanLyKTX.Models
     public partial class ModelQLKTX : DbContext
     {
         public ModelQLKTX()
-            : base("name=ModelQLKTX2")
+            : base("name=ModelQLKTX")
         {
         }
 
